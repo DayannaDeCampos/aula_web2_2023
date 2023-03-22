@@ -62,7 +62,7 @@ class BD {
 
 }
 
-public function buscar($nome_tabela, $dados)
+public function pesquisar($nome_tabela, $dados)
 {
 $campo = $dados['campo'];
 $valor = $dados['valor'];
@@ -71,6 +71,16 @@ $sql = "SELECT * FROM $nome_tabela WHERE $campo LIKE '%valor%';";
 $st = $conn->prepare($sql);
 $st->execute();
 return $st->fetchAll(PDO::FETCH_CLASS); // retorna o objeto referente ao o ID
+}
+
+public function buscar($nome_tabela, $id)
+{
+    $conn = $this->conn();
+    $sql = "SELECT * FROM $nome_tabela WHERE id=$id;";
+    $st = $conn->prepare($sql);
+    $st->execute();
+
+  return $st->fetchObject();
 }
 
 }

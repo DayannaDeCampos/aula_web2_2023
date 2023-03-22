@@ -22,6 +22,18 @@ class UsuarioController {
    
     }
 
+    public function deletar($id){
+
+        return  $this->model->remove($this->table, $id);
+    
+     }
+
+     public function buscar($id){
+
+        return  $this->model->buscar($this->table, $id);
+    
+     }
+
 
 
 }
