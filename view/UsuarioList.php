@@ -3,10 +3,18 @@ include "../Controller/UsuarioController.php";
 
 
     $usuario = new UsuarioController();
-    $load = $usuario->carregar();
+
     if(!empty($_GET['id'])){
         $usuario->deletar($_GET['id']);
         header("location: UsuarioList.php");
+    }
+
+    if(!empty($_POST)){
+      $load = $usuario->pesquisar($_POST);
+  }
+
+    else{
+      $load = $usuario->carregar();
     }
 
    // var_dump($load);
@@ -19,6 +27,15 @@ include "../Controller/UsuarioController.php";
     <title>PHP Test</title>
   </head>
   <body>
+    <form action="UsuarioList.php" method="post">
+      <select name="campo">
+        <option value="nome">Nome</option>
+        <option value="telefone">Telefone</option>
+      </select>
+      <input type="text" name="valor"/>
+      <input type="submit" name="buscar"/>
+  </fom>
+    <a href="UsuarioForm.php"><br>Cadastrar</a>
     <table>
         <tr>
             <th>ID</th>
@@ -28,16 +45,15 @@ include "../Controller/UsuarioController.php";
           
           <?php  
             foreach($load as $item){
-
-        echo "<tr>
-            <td>$item->id</td>
-            <td>$item->nome </td>
-            <td>$item->telefone </td>
-            <td><a href='./UsuarioForm.php?id=$item->id'>Editar</a> </td>
-            <td><a href='./UsuarioList.php?id=$item->id'
-                onclick='return confirm(\"Deseja excluir?\")'
-            >Excluir</a> </td>
-        </tr>";
+            echo "<tr>
+                <td>$item->id</td>
+                <td>$item->nome </td>
+                <td>$item->telefone </td>
+                <td><a href='./UsuarioForm.php?id=$item->id'>Editar</a> </td>
+                <td><a href='./UsuarioList.php?id=$item->id'
+                    onclick='return confirm(\"Deseja excluir?\")'
+                >Excluir</a> </td>
+            </tr>";
     }
         ?>
 

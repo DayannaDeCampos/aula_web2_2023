@@ -13,7 +13,13 @@ class UsuarioController {
     public function salvar($dados){
 
         $this->model->inserir($this->table, $dados);
+        //header ("location: UsuarioList.php");
    
+    }
+
+    public function update($dados){
+
+        $this->model->update($this->table, $dados);
     }
 
     public function carregar(){
@@ -21,6 +27,11 @@ class UsuarioController {
        return  $this->model->select($this->table);
    
     }
+
+    public function pesquisar($dados){
+        return  $this->model->pesquisar($this->table, $dados);
+    
+     }
 
     public function deletar($id){
 
@@ -33,6 +44,10 @@ class UsuarioController {
         return  $this->model->buscar($this->table, $id);
     
      }
+
+
+
+    
 
 
 
