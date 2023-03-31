@@ -24,13 +24,13 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 
 -- Copiando dados para a tabela db_aula.usuario: ~7 rows (aproximadamente)
 INSERT INTO `usuario` (`id`, `nome`, `telefone`) VALUES
-	(1, 'Jackson', '84 98552200'),
-	(2, 'Jackson', '84 98552200'),
-	(3, 'Jackson', '84 98552200'),
-	(4, 'Jackson', '84 98552200'),
-	(5, 'Jackson', '84 98552200'),
-	(7, 'teste1', 'teste'),
-	(8, 'teste', 'teste');
+	(1, 'Dayanna', '78552200'),
+	(2, 'Julia', ' 95879568'),
+	(3, 'Iotânia', '46876335'),
+	(4, 'Letícia', '92345678'),
+	(5, 'Kalyta', '93456789'),
+	(7, 'Barbara', 'teste'),
+	(8, 'Diego', 'teste');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
